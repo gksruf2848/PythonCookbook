@@ -13,3 +13,29 @@ print(name, email, phone_numbers)
 #별표가 처음에 올 수도 있다.
 *trailing, current = [10, 8, 7, 1, 9, 5, 10, 3]
 print(trailing, current)
+
+
+#길이가 일정하지 않은 튜플에 사용하는 예제
+records = [
+    ('foo', 1, 2),
+    ('bar', 'hello'),
+    ('foo', 3, 4, 5, 6, 7)
+]
+
+def do_foo(*n):
+    print('foo', *n)
+
+def do_bar(s):
+    print('bar', s)
+
+for tag, *args in records:
+    if tag == 'foo':
+        do_foo(*args)
+    elif tag =='bar':
+        do_bar(*args)
+
+
+#문자열 프로세싱에 사용하는 예제
+line = 'nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false'
+uname, *fields, homedir, sh = line.split(':')
+print(uname, homedir, sh)

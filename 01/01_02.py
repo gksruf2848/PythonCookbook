@@ -39,3 +39,9 @@ for tag, *args in records:
 line = 'nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false'
 uname, *fields, homedir, sh = line.split(':')
 print(uname, homedir, sh)
+
+
+#언패킹 이후에 특정 값을 버리고 싶을때, *만 사용할 수 없기에 _를 붙이면 좋다.
+record = ('ACME', 50, 123.45, (12, 18, 2012))
+name, *_, (*_, year) = record
+print(name, year)
